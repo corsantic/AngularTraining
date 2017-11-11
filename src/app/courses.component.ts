@@ -5,40 +5,13 @@ import{ Component} from '@angular/core';
 @Component({
 selector:'courses',
 template:`
-<h2>{{ title }}</h2>
-
-
-<div (click)="onDivClicked()">
-<button (click)="onSave($event)">Save</button>
-</div>
-
-
-<ul><li *ngFor="let course of courses">
-{{course}}</li>
-</ul>
+<input #email (keyup.enter)="onKeyUp(email.value)"/>
 `
 })
 export class CoursesComponent{
- title="List of Courses";
- imageUrl="http://lorempixel.com/400/200";
- colSpan=2;
- isActive=false;
-
- onDivClicked(){
-     console.log("onDivClicked");
- }
-
-
- onSave($event){
-     $event.stopPropagation();
-     console.log("button clicked",$event);
- }
-
-
-courses;
-constructor(service:CoursesService){
-    this.courses=service.getCourses();
+onKeyUp(email)
+{
+  console.log(email);
 }
-
 
 }
