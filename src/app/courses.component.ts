@@ -5,16 +5,20 @@ import{ Component} from '@angular/core';
 @Component({
 selector:'courses',
 template:`
-<input [value]="email" (keyup.enter)="email=$event.target.value; onKeyUp()"/>
-<input [(ngModel)]="email" (keyup.enter)="onKeyUp()"/>
-`//down is better way
+{{course.title| uppercase}}<br/>
+{{course.student | number}}<br/>
+{{course.rating| number:'2.1-1'}}<br/>
+{{course.price | currency:'AUD':true:'3.1-1'}}<br/>
+{{course.releaseDate | date:'shortDate'}}<br/>
+`
 })
 export class CoursesComponent{
-email="me@email.com";
+course;
+    constructor(service:CoursesService){
 
-    onKeyUp(){
+        this.course=service.getCourses();
 
-     console.log(this.email);
-}
+        
+    }
 
 }

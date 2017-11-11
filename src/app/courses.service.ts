@@ -2,7 +2,14 @@
 
 export class CoursesService {
     getCourses() {
-        return ["course1","course2","course3","course4"];
+        let course={
+            title:"The Complete Angular Course",
+            rating:4.9655,
+            student:30123,
+            price:190.195,
+            releaseDate:new Date()
+        }
+        return course;
     }
 
 }   
