@@ -20,9 +20,8 @@ onAdd()
   });
 }
 onChange(course){
- let index= this.courses.indexOf(course);
- this.courses.splice(index,1);
- 
+course.name='Updated';
+
 
 }
 
