@@ -10,7 +10,8 @@ export class ContactFormComponent {
 
   contactMethods=[
     {id:1 ,name:'Email'},
-    {id:2 ,name:'Phone'}
+    {id:2 ,name:'Phone'},
+    {id:3 ,name:'Skype'}
   ]
 
 

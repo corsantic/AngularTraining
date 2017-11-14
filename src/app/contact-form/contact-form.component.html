@@ -56,7 +56,6 @@ Contact Method
   </label>
 
   <select 
-   multiple
    ngModel
    name="contactMethod"
    id="contactMethod" 
@@ -64,10 +63,16 @@ Contact Method
    <option *ngFor="let method of contactMethods" [value]="method.id">
 {{method.name}}
    </option>
-
- 
   </select>
 </div>
+
+<div *ngFor="let method of contactMethods"class="radio">
+  <label>
+    <input ngModel type="radio" name="contactMethod" [value]="method.id">
+    {{method.name}}
+  </label>
+</div>
+
 
 <p>
   {{f.value | json}}
