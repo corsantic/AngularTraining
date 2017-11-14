@@ -8,6 +8,10 @@ import { FavoriteChangedEventArgs } from './favorite/favorite.component';
 })
 export class AppComponent {
  
-  viewMode='map';
+courses=[
+  { id:1,name:'course1'},
+  { id:2,name:'course2'},
+  { id:3,name:'course3'}
+];
 
 }
