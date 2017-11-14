@@ -3,6 +3,7 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 
 body{
-padding: 30px
+padding: 30px;
+font-size:20px;
      
 }
