@@ -13,10 +13,6 @@ export class ContactFormComponent {
     {id:2 ,name:'Phone'},
     {id:3 ,name:'Skype'}
   ]
-
-
-  
-
   log(x) {
     console.log(x);
   }
