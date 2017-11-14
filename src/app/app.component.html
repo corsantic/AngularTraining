@@ -1,5 +1,9 @@
+<button (click)="onAdd()">Add</button>
+
 <ul>
-    <li *ngFor="let course of courses;odd as isOdd">
-      {{course.name}}<span *ngIf="isOdd">(ODD)</span>
+
+    <li *ngFor="let course of courses">
+      {{course.name}}
+      <button (click)="onRemove(course)">Remove</button>
     </li>
 </ul>
