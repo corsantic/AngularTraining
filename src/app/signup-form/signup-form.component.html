@@ -6,13 +6,16 @@
             id="username" 
             type="text" 
             class="form-control">
-            <div *ngIf="username.touched && username.invalid"
-             class="alert alert-danger">
+            <div *ngIf="username.invalid && username.touched"
+            class="alert alert-danger">
                <div *ngIf="username.errors.required">
                     Username is required
                 </div>
                <div *ngIf="username.errors.cannotContainSpace">
                     Username cannot contain space.
+                </div>
+               <div *ngIf="username.errors.shouldBeUnique">
+                    Username should be unique.
                 </div>
              <div *ngIf="username.errors.minlength">
                  Username should be min {{username.errors.minlength.requiredLength}} chararacters
