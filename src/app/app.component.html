@@ -1,9 +1,9 @@
 
-<bootstrap-panel>
-<ng-container class="heading">Heading</ng-container>
-<div class="body">
-    <h2>Body</h2>
-    <p>Some content...</p>
+<div *ngIf="courses.length>0;then coursesList else noCourses">
 </div>
-
-</bootstrap-panel>
+<ng-template #coursesList>
+    List Of Courses
+</ng-template>
+<ng-template #noCourses>
+    no Courses Yet
+</ng-template>
