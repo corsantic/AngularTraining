@@ -14,46 +14,37 @@ export class PostService {
   constructor(private http: Http) {
 
   }
+
   getPosts() {
     return this.http.get(this.url)
-      .catch((error: Response) => {
-        if (error.status === 404)
-          return Observable.throw(new NotFoundError());
-        else
-          return Observable.throw(new AppError(error));
-      });
+      .catch(this.handleError);
   }
+
   createPost(post) {
     return this.http.post(this.url, JSON.stringify(post))
-      .catch((error: Response) => {
-        if (error.status === 404)
-          return Observable.throw(new BadInput(error.json()));
-
-        else
-          return Observable.throw(new AppError(error.json()));
-      });
+      .catch(this.handleError);
   }
+
 
   updatePost(post) {
     return this.http.patch(this.url + '/' + post.id, JSON.stringify({ isRead: true }))
-      .catch((error: Response) => {
-        if (error.status === 404)
-          return Observable.throw(new NotFoundError());
-
-        else
-          return Observable.throw(new AppError(error.json()));
-      });
+      .catch(this.handleError);
   }
   deletePost(id) {
 
     return this.http.delete(this.url + '/' + id)
-      .catch((error: Response) => {
-        if (error.status === 404)
-          return Observable.throw(new NotFoundError());
+      .catch(this.handleError);
+  }
 
-        else
-          return Observable.throw(new AppError(error.json()));
+  private handleError(error: Response) {
+    if (error.status === 400)
+      return Observable.throw(new BadInput(error.json()));
 
-      });
+    if (error.status === 404)
+      return Observable.throw(new NotFoundError());
+
+    else
+      return Observable.throw(new AppError(error));
+
   }
 }
