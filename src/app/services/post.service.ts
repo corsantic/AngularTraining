@@ -43,7 +43,7 @@ export class PostService {
         else
           return Observable.throw(new AppError(error.json()));
       });
-  }○ş
+  }
   deletePost(id) {
 
     return this.http.delete(this.url + '/' + id)
