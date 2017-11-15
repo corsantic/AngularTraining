@@ -13,16 +13,16 @@ export class UsernameValidators {
         return null;
 
     }
-    static shouldBeUnique(control: AbstractControl): Promise<ValidationErrors | null> {
+    static shouldBeUnique(control: AbstractControl): Promise< ValidationErrors | null> {
 
         return new Promise((resolve, reject) => {
             setTimeout(() => {
-                if (control.value === 'furkan')
+                if (control.value ==='hello')
                     resolve({ shouldBeUnique: true });
                 else
-                        resolve(null);
+                    resolve(null);
 
-            }, 1000);
+            }, 2000);
         });
 
 
