@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { SignupFormComponent } from './signup-form/signup-form.component';
 import { SummaryPipe } from './summary.pipe';
 
-
 import { NgModule } from '@angular/core';
 import {HttpModule} from '@angular/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
