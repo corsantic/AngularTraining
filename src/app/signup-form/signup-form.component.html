@@ -1,7 +1,11 @@
 <form [formGroup]="form">
     <div class="form-group">
         <label for="username">Username</label>
-        <input formControlName="username" id="username" type="text" class="form-control">
+        <input formControlName="username" 
+        id="username" 
+        type="text" 
+        class="form-control">
+        <div  *ngIf="username.pending">Checking for uniqueness...</div>
         <div *ngIf="username.invalid && username.touched" class="alert alert-danger">
             <div *ngIf="username.errors.required">
                 Username is required
