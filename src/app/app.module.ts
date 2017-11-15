@@ -1,7 +1,8 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { SignupFormComponent } from './signup-form/signup-form.component';
 import { SummaryPipe } from './summary.pipe';
-import { CoursesService } from './courses.service';
+
 
 import { NgModule } from '@angular/core';
 import {HttpModule} from '@angular/http';
@@ -15,6 +16,7 @@ import { InputFormatDirective } from './input-format.directive';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { NewCourseFormComponent } from './new-course-form/new-course-form.component';
 import { PostsComponent } from './posts/posts.component';
+import { PostService } from './services/post.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +38,7 @@ import { PostsComponent } from './posts/posts.component';
     HttpModule   
   ],
   providers: [
-    CoursesService
+    PostService
   ],
   bootstrap: [AppComponent]
 })
