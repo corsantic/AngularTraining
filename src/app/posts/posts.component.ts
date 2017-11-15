@@ -21,14 +21,6 @@ export class PostsComponent implements OnInit {
     this.service.getPosts()
       .subscribe(response => {
         this.posts = (response.json());
-      }, (error:AppError)=>{
-        if(error instanceof NotFoundError){
-          alert("Posts not found");
-        }
-        else{
-          alert("an unexpected error occurred.");
-          console.log(error);
-        }
       });
   }
 
@@ -42,17 +34,14 @@ export class PostsComponent implements OnInit {
         post.id = response.json().id;
         this.posts.splice(0, 0, post);
       },
-      (error:AppError)=>{
-        if(error instanceof BadInput){
+      (error: AppError) => {
+        if (error instanceof BadInput) {
           alert("This post has already created");
         }
-        else{
-          alert("an unexpected error occurred.");
-          console.log(error);
-        }
-      
+        else throw error;
+
       });
-      
+
   }
   updatePost(post) {
     this.service.updatePost(post)
@@ -60,15 +49,12 @@ export class PostsComponent implements OnInit {
         console.log(response.json());
 
       },
-      (error:AppError)=>{
-        if(error instanceof NotFoundError)
-        alert("This post has already been updated");
-        else{
-        alert('An unexpected error occurred.');
-        console.log(error);
-        }
-      });
-    
+      (error: AppError) => {
+        if (error instanceof NotFoundError)
+          alert("This post has already been updated");
+        else throw error;
+      }); 
+
   }
 
   deletePost(post) {
@@ -77,17 +63,14 @@ export class PostsComponent implements OnInit {
         let index = this.posts.indexOf(post);
         this.posts.splice(index, 1);
       },
-      (error:AppError)=>{
-        if(error instanceof NotFoundError)
-        alert("This post has already been deleted");
-        else
-        {
-          alert("An unexpected error occured.");
-          console.log(error);
-        }
+      (error: AppError) => {
+        if (error instanceof NotFoundError)
+          alert("This post has already been deleted");
+        else throw error;
+   
    
       });
-      }
-  
+  }
+
 
 }
