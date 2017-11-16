@@ -9,5 +9,4 @@ export class PostService extends DataService {
     super('https://jsonplaceholder.typicode.com/posts', http);
   }
 
-
 }
