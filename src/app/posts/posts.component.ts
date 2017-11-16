@@ -26,13 +26,17 @@ export class PostsComponent implements OnInit {
     let post: any = {
       title: input.value
     };
+    this.posts.splice(0, 0, post);
+    
     input.value = '';
     this.service.create(post)
       .subscribe(newPost => {
         post.id =newPost.id;
-        this.posts.splice(0, 0, post);
+       
       },
       (error: AppError) => {
+        this.posts.splice(0,1);
+
         if (error instanceof BadInput) {
           alert("This post has already created");
         }

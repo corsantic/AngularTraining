@@ -1,5 +1,4 @@
 import { SummaryPipe } from './summary.pipe';
-import { CoursesService } from './courses.service';
 import{ Component} from '@angular/core';
 
 //style for objects https://www.w3schools.com/jsref/dom_obj_style.asp
